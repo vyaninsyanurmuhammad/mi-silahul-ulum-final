@@ -4,7 +4,7 @@ import NavigationBar from './components/navigation-bar'
 export default function Home() {
   return (
     <>
-    <NavigationBar></NavigationBar>
+      <NavigationBar></NavigationBar>
       <div>
         Home
       </div>
