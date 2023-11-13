@@ -3,7 +3,7 @@ import React from 'react'
 export default function HeroHome() {
     return (
         <>
-            <section className="flex h-[80vh] w-full bg-[url('/assets/img/bg-hero.png')] bg-cover bg-center">
+            <section className="flex h-[720px] w-full bg-[url('/assets/img/bg-hero.png')] bg-cover bg-center">
                 <div className="flex items-center justify-center w-full h-full bg-aztec-500 bg-opacity-80">
                     <div className="flex flex-col lg:flex-row items-center lg:items-end justify-center lg:justify-between space-y-[32px] lg:space-x-[32px] w-full px-[54px] sm:px-[48px] xl:px-[271px]">
                         <div className="w-fit lg:w-[756px] text-white">
