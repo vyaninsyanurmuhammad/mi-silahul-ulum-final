@@ -13,7 +13,7 @@ export default function AboutCardHome() {
                     <div className="flex flex-col justify-center gap-3">
                         <div>
                             <div className="text-xl font-semibold">Tentang Kami</div>
-                            <div className="text-xl font-semibold">Madrasah Ibtidaiyah Silahul Ulum</div>
+                            <div className="text-2xl font-bold">Madrasah Ibtidaiyah Silahul Ulum</div>
                         </div>
                         <div>Descriptons</div>
                         <Button className="w-fit rounded-full bg-aztec-500 text-white">Cek Sekarang <ArrowSmallRightIcon className="h-6 w-6 text-white"></ArrowSmallRightIcon> </Button>
