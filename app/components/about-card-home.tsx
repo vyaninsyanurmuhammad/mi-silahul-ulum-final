@@ -7,9 +7,7 @@ export default function AboutCardHome() {
         <>
             <div className="flex justify-center w-full px-64 mt-16">
                 <div className="flex flex-row gap-12 rounded-xl overflow-hidden bg-white w-full px-14 pt-14 shadow-xl">
-                    <div className="bg-green-300">
-                        <div className="w-60 h-60">Image</div>
-                    </div>
+                    <div className="w-60 h-60  bg-[url('/assets/img/about-model.png')] bg-cover"></div>
                     <div className="flex flex-col justify-center gap-3">
                         <div>
                             <div className="text-xl font-semibold">Tentang Kami</div>
