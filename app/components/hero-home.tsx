@@ -12,12 +12,12 @@ export default function HeroHome() {
                         </div>
                         <div className="flex flex-col space-y-[32px] w-fit justify-center items-center">
                             <div className="flex flex-row space-x-[32px]">
-                                <div className="h-[100px] w-[100px] lg:h-[200px] lg:w-[200px] bg-slate-400 rounded-t-[100px] rounded-b-[15px]"></div>
-                                <div className="h-[100px] w-[100px] lg:h-[200px] lg:w-[200px] bg-slate-400 rounded-t-[15px] rounded-b-[15px]"></div>
+                                <div className="h-[100px] w-[100px] lg:h-[200px] lg:w-[200px] bg-[url('/assets/img/hero-model-1.jpg')] bg-cover rounded-b-2xl rounded-t-[99px] overflow-hidden"></div>
+                                <div className="h-[100px] w-[100px] lg:h-[200px] lg:w-[200px] bg-[url('/assets/img/hero-model-2.jpg')] bg-cover rounded-2xl overflow-hidden"></div>
                             </div>
                             <div className="flex flex-row space-x-[32px]">
-                                <div className="h-[100px] w-[100px] lg:h-[200px] lg:w-[200px] bg-slate-400 rounded-t-[15px] rounded-b-[15px]"></div>
-                                <div className="h-[100px] w-[100px] lg:h-[200px] lg:w-[200px] bg-slate-400 rounded-t-[100px] rounded-b-[100px]"></div>
+                                <div className="h-[100px] w-[100px] lg:h-[200px] lg:w-[200px] bg-[url('/assets/img/hero-model-3.jpg')] bg-cover rounded-t-[15px] rounded-b-[15px]"></div>
+                                <div className="h-[100px] w-[100px] lg:h-[200px] lg:w-[200px] bg-[url('/assets/img/hero-model-4.jpg')] bg-cover rounded-b-[100px]"></div>
                             </div>
                         </div>
                     </div>
