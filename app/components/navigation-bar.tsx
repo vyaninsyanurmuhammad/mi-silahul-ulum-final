@@ -33,7 +33,7 @@ export default function NavigationBar() {
 
     return (
         <>
-            <div className="fixed top-4 left-1/2 transform -translate-x-1/2">
+            <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-40">
                 <div className="flex flex-row bg-white pr-4 rounded-xl shadow-xl overflow-hidden">
                     <Link className="bg-slate-100 hover:bg-slate-200 px-7 py-7" href={"/"}>
                         <HomeIcon className="h-6 w-6 text-slate-800"></HomeIcon>
