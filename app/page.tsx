@@ -7,10 +7,10 @@ export default function Home() {
   return (
     <>
       <NavigationBar></NavigationBar>
-      <HeroHome></HeroHome>
-      <AboutCardHome></AboutCardHome>
-      <div>
-        Home
+
+      <div className="flex flex-col gap-16">
+        <HeroHome></HeroHome>
+        <AboutCardHome></AboutCardHome>
       </div>
 
     </>

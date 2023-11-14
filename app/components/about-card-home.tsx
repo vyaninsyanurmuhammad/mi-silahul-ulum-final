@@ -8,7 +8,7 @@ import { Player } from "@lottiefiles/react-lottie-player"
 export default function AboutCardHome() {
     return (
         <>
-            <section className="px-8 xl:px-64 mt-16">
+            <section className="px-8 xl:px-64">
                 <div className="relative rounded-xl overflow-hidden shadow-xl group">
                     <div className="absolute w-full h-full bg-gray-300">
 
