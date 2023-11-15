@@ -5,7 +5,20 @@ import React from 'react'
 import { ArrowSmallRightIcon } from '@heroicons/react/24/outline'
 import { Player } from "@lottiefiles/react-lottie-player"
 
-export default function AboutCardHome() {
+export default function AboutCardHome(
+    {
+        title,
+        description,
+        imgModelSrc,
+        isAbout = false,
+        route
+    }: {
+        title?: string,
+        description?: string,
+        imgModelSrc: string,
+        isAbout?: boolean,
+        route?: string
+    }) {
     return (
         <>
             <section className="px-8 xl:px-64">
@@ -24,13 +37,13 @@ export default function AboutCardHome() {
                     <div className="relative">
                         <div className="flex justify-center w-full">
                             <div className="flex flex-row gap-12 w-full px-14">
-                                <div className="w-60 h-60  bg-[url('/assets/img/about-model.png')] bg-cover"></div>
+                                <div className="w-60 h-60 pt-6 bg-cover"><img src={imgModelSrc} alt={""}></img></div>
                                 <div className="flex flex-col justify-center gap-3">
                                     <div>
-                                        <div className="text-xl font-semibold">Tentang Kami</div>
-                                        <div className="text-2xl font-bold">Madrasah Ibtidaiyah Silahul Ulum</div>
+                                        {isAbout ? <div className="text-xl font-semibold">Tentang Kami</div> : <></>}
+                                        <div className="text-2xl font-bold">{title}</div>
                                     </div>
-                                    <div>Descriptons</div>
+                                    <div>{description}</div>
                                     <Button className="w-fit rounded-full bg-aztec-500 text-white">Cek Sekarang <ArrowSmallRightIcon className="h-6 w-6 text-white"></ArrowSmallRightIcon> </Button>
                                 </div>
 

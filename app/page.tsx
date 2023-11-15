@@ -3,6 +3,7 @@ import NavigationBar from './components/navigation-bar'
 import HeroHome from "./components/hero-home"
 import AboutCardHome from "./components/about-card-home"
 import NewsHome from "./components/news-home"
+import AchievementHome from "./components/achievement-home"
 
 export default function Home() {
   return (
@@ -11,8 +12,19 @@ export default function Home() {
 
       <div className="flex flex-col gap-16">
         <HeroHome></HeroHome>
-        <AboutCardHome></AboutCardHome>
+        <AboutCardHome
+          title="Madrasah Ibtidaiyah Silahul Ulum"
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          imgModelSrc="/assets/img/about-model.png"
+          isAbout>
+        </AboutCardHome>
         <NewsHome></NewsHome>
+        <AchievementHome></AchievementHome>
+        <AboutCardHome
+          title="Informasi Pendaftaran Siswa Didik Baru"
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          imgModelSrc="/assets/img/ppdb-model.png">
+        </AboutCardHome>
       </div>
 
     </>
