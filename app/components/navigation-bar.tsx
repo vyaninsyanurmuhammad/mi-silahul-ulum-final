@@ -8,10 +8,50 @@ export default function NavigationBar() {
         {
             judul: "tentang kami",
             link: "#",
+            sub_navigation: [
+                {
+                    judul: "sejarah",
+                    link: "#"
+                },
+                {
+                    judul: "visi & misi",
+                    link: "#"
+                },
+                {
+                    judul: "sarana & prasarana",
+                    link: "#"
+                },
+                {
+                    judul: "kepala madrasah",
+                    link: "#"
+                },
+                {
+                    judul: "struktur madrasah",
+                    link: "#"
+                },
+                {
+                    judul: "pendidik",
+                    link: "#"
+                },
+            ]
         },
         {
             judul: "pendidikan",
             link: "#",
+            sub_navigation: [
+                {
+                    judul: "kurikulum",
+                    link: "#"
+                },
+                {
+                    judul: "prestasi madrasah",
+                    link: "#"
+                },
+                {
+                    judul: "seragam madrasah",
+                    link: "#"
+                },
+            ]
         },
         {
             judul: "berita & acara",
@@ -43,10 +83,23 @@ export default function NavigationBar() {
                         {navigations.map((navigation) =>
                             <li
                                 key={navigation.judul}
-                                className="flex"
+                                className="group"
                             >
-                                <Link className="whitespace-nowrap px-5 py-7 capitalize hover:bg-slate-50" href={navigation.link} > {navigation.judul}</Link>
+                                <div className="flex px-5 py-7 group-hover:bg-slate-100 ">
+                                    <Link className="whitespace-nowrap capitalize" href={navigation.link} > {navigation.judul}</Link>
+                                </div>
+                                <div className="absolute hidden group-hover:block">
+                                    <ul className="bg-gray-100 shadow-xl rounded-br-xl">
+                                        {navigation.sub_navigation?.map((sub) => (
+                                            <li key={sub.judul} className="px-5 py-5 hover:bg-slate-200 ">
+                                                <Link href={navigation.link} className="capitalize">
+                                                    {sub.judul}
 
+                                                </Link>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
                             </li>
                         )}
                     </ul>
