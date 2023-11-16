@@ -7,7 +7,7 @@ export default function NewsCardHome() {
         <>
             <div className="rounded-xl h-fit overflow-hidden shadow-xl">
                 <div className="w-full h-60 bg-slate-300">
-                    image
+                    <img className="w-full h-full object-cover" src="/assets/img/hero-model-4.jpg" alt=""></img>
                 </div>
                 <div className="flex flex-col items-end gap-4 p-6">
                     <div className="flex flex-col gap-3">
