@@ -21,7 +21,7 @@ export default function AboutCardHome(
     }) {
     return (
         <>
-            <section className="px-8 xl:px-64">
+            <section className="px-16 xl:px-32 2xl:px-64">
                 <div className="relative rounded-xl overflow-hidden shadow-xl group">
                     <div className="absolute w-full h-full bg-gray-300">
 
@@ -36,14 +36,16 @@ export default function AboutCardHome(
                     </div>
                     <div className="relative">
                         <div className="flex justify-center w-full">
-                            <div className="flex flex-row gap-12 w-full px-14">
-                                <div className="w-60 h-60 pt-6 bg-cover"><img src={imgModelSrc} alt={""}></img></div>
-                                <div className="flex flex-col justify-center gap-3">
+                            <div className="flex flex-col md:flex-row gap-6 md:gap-12 w-full px-8 lg:px-14 py-14 md:py-0 justify-center md:justify-start">
+                                <div className="flex justify-center h-full w-full lg:w-fit md:pt-6 bg-cover overflow-hidden">
+                                    <img className="h-full w-60 object-cover object-top" src={imgModelSrc} alt={""}></img>
+                                </div>
+                                <div className="flex flex-col justify-center items-center lg:items-start gap-3 py-12 w-full">
                                     <div>
-                                        {isAbout ? <div className="text-xl font-semibold">Tentang Kami</div> : <></>}
-                                        <div className="text-2xl font-bold">{title}</div>
+                                        {isAbout ? <div className="text-xl font-semibold text-center lg:text-start text-night-800">Tentang Kami</div> : <></>}
+                                        <div className="text-2xl font-bold text-center lg:text-start text-night-800">{title}</div>
                                     </div>
-                                    <div>{description}</div>
+                                    <div className="text-center lg:text-start text-night-600">{description}</div>
                                     <Button className="w-fit rounded-full bg-aztec-500 text-white">Cek Sekarang <ArrowSmallRightIcon className="h-6 w-6 text-white"></ArrowSmallRightIcon> </Button>
                                 </div>
 

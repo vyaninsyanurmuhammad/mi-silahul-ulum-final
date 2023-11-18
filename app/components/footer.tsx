@@ -71,17 +71,17 @@ export default function Footer() {
 
     return (
         <>
-            <footer className="w-full bg-aztec-500 h-min text-night px-8 xl:px-64 py-8">
-                <div className="flex flex-row w-full justify-center gap-6 h-min">
-                    <div className="flex flex-col gap-3 w-80">
+            <footer className="w-full bg-aztec-500 h-min text-night px-16 xl:px-64 py-8">
+                <div className="flex flex-col md:flex-row w-full justify-center gap-6">
+                    <div className="flex flex-col gap-3 w-full lg:w-80">
                         <div className="font-bold text-2xl">
                             MI SILAHUL ULUM
                         </div>
-                        <span className="text-night-100">
+                        <p className="text-night-100 flex">
                             RT.01/RW.01, Desa. Asempapan, Kec. Trangkil, Kabupaten Pati, Jawa Tengah 59153
-                        </span>
+                        </p>
                     </div>
-                    <div className="flex flex-row justify-center gap-8 w-full">
+                    <div className="flex flex-col xl:flex-row justify-center gap-8 w-full">
                         {
                             navigations.map((navigation) => (
                                 <div key={navigation.judul} className="flex flex-col gap-3 capitalize">
@@ -101,7 +101,7 @@ export default function Footer() {
                             ))
                         }
                     </div>
-                    <div className="flex flex-col gap-3 w-80">
+                    <div className="flex flex-col gap-3 w-full lg:w-80">
                         <span className="text-night">
                             Madrasah Ibtidaiyah Silahul Ulum berdiri dibawah naungan Yayaysan Silahul Ulum
                         </span>
