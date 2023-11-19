@@ -5,7 +5,7 @@ import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline'
 export default function NewsCardHome() {
     return (
         <>
-            <div className="rounded-xl w-80 h-fit overflow-hidden shadow-xl">
+            <div className="rounded-xl w-80 h-fit overflow-hidden shadow-xl bg-white">
                 <div className="w-full h-60 bg-slate-300">
                     <img className="w-full h-full object-cover" src="/assets/img/hero-model-4.jpg" alt=""></img>
                 </div>

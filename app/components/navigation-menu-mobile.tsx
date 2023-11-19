@@ -17,9 +17,9 @@ export default function NavigationMenuMobile({ navigation }: { navigation: Navig
                         ) : (
                             <>
                                 {!isOpen ? (
-                                    <ChevronLeftIcon className="mr-7 h-6 w-6 text-night-800"></ChevronLeftIcon>
+                                    <ChevronLeftIcon className="mr-7 h-5 w-5 text-night-800"></ChevronLeftIcon>
                                 ) : (
-                                    <ChevronDownIcon className="mr-7 h-6 w-6 text-night-800"></ChevronDownIcon>
+                                    <ChevronDownIcon className="mr-7 h-5 w-5 text-night-800"></ChevronDownIcon>
                                 )
                                 }
                             </>

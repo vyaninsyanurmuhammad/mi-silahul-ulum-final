@@ -3,93 +3,15 @@
 import { Button, Link, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, Navbar, NavbarContent, NavbarItem, useDisclosure } from '@nextui-org/react'
 import React from 'react'
 import { Bars2Icon, Bars3Icon, HomeIcon } from '@heroicons/react/24/outline'
-import { ChevronDownIcon, ChevronLeftIcon } from "@heroicons/react/20/solid";
-import NavigationMenuMobile from "./navigation-menu-mobile";
-import { NavigationModel } from "../models/navigation";
+import { ChevronDownIcon, ChevronLeftIcon } from "@heroicons/react/20/solid"
+import NavigationMenuMobile from "./navigation-menu-mobile"
+import { NavigationModel, NavigationsData } from "../models/navigation"
 
 export default function NavigationBar() {
-    const navigations:Array<NavigationModel> =  [
-        {
-            judul: "tentang kami",
-            link: "#",
-            sub_navigation: [
-                {
-                    judul: "sejarah",
-                    link: "#",
-                    sub_navigation: [],
-                },
-                {
-                    judul: "visi & misi",
-                    link: "#",
-                    sub_navigation: [],
-                },
-                {
-                    judul: "sarana & prasarana",
-                    link: "#",
-                    sub_navigation: [],
-                },
-                {
-                    judul: "kepala madrasah",
-                    link: "#",
-                    sub_navigation: [],
-                },
-                {
-                    judul: "struktur madrasah",
-                    link: "#",
-                    sub_navigation: [],
-                },
-                {
-                    judul: "pendidik",
-                    link: "#",
-                    sub_navigation: [],
-                },
-            ]
-        },
-        {
-            judul: "pendidikan",
-            link: "#",
-            sub_navigation: [
-                {
-                    judul: "kurikulum",
-                    link: "#",
-                    sub_navigation: [],
-                },
-                {
-                    judul: "prestasi madrasah",
-                    link: "#",
-                    sub_navigation: [],
-                },
-                {
-                    judul: "seragam madrasah",
-                    link: "#",
-                    sub_navigation: [],
-                },
-            ]
-        },
-        {
-            judul: "berita & acara",
-            link: "#",
-            sub_navigation: [],
-        },
-        {
-            judul: "galeri",
-            link: "#",
-            sub_navigation: [],
-
-        },
-        {
-            judul: "PPDB",
-            link: "#",
-            sub_navigation: [],
-        },
-        {
-            judul: "kontak",
-            link: "#",
-            sub_navigation: [],
-        },
-    ];
 
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
+
+    const navigations = NavigationsData.slice(1);
 
     return (
         <>

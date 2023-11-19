@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import NavigationBar from './components/navigation-bar'
+import NavigationBar from './components/navigation-bar-home'
 import HeroHome from "./components/hero-home"
 import AboutCardHome from "./components/about-card-home"
 import NewsHome from "./components/news-home"
