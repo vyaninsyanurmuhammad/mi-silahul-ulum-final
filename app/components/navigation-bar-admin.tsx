@@ -17,16 +17,16 @@ export default function NavigationBar() {
 
     return (
         <>
-            <div className="fixed w-72 h-full flex flex-col gap-2 bg-white py-6 justify-between">
+            <div className="w-72 h-full flex flex-col gap-2 bg-white py-6 justify-between">
                 <div className="flex flex-col items-center gap-6 w-full h-full">
                     <Image className="w-12 h-12 shadow-xl border" src="logo-ysu.svg" />
                     <div className="flex flex-col w-full">
                         {navigations.map((navigation) => (
                             <div key={navigation.judul}>
-                                <NavigationDropdownAdmin navigation={navigation}
-                                    isHasDropdown={!(navigation.sub_navigation.length === 0) ? true : false}
+                                <NavigationDropdownAdmin 
+                                navigation={navigation}
                                     isActive={patheNameRouter + "/" === "/admin" + navigation.link ? true : false}
-                                    isDropdown />
+                                />
 
                             </div>
                         ))}

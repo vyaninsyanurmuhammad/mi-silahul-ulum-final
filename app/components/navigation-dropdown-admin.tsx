@@ -8,13 +8,9 @@ import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/20/solid";
 export default function NavigationDropdownAdmin(
     {
         navigation,
-        isDropdown = false,
-        isHasDropdown = false,
         isActive = false
     }: {
         navigation: NavigationModel,
-        isDropdown?: boolean,
-        isHasDropdown?: boolean,
         isActive?: boolean
     }) {
     const [isOpen, setOpen] = useState(false);
@@ -34,10 +30,8 @@ export default function NavigationDropdownAdmin(
                             <div className="flex w-2">
 
                                 {
-                                    isDropdown ?
-                                        isActive ?
-                                            <div className="w-2 bg-aztec-700 rounded-r-lg" />
-                                            : <></>
+                                    isActive ?
+                                        <div className="w-2 bg-aztec-700 rounded-r-lg" />
                                         : <></>
                                 }
                             </div>
@@ -48,45 +42,11 @@ export default function NavigationDropdownAdmin(
                                         navigation.judul
                                     }
                                 </span>
-
                             </div>
                         </div>
                     </Link>
-                    {
-                        isHasDropdown ?
-                            <Link className={`${(isOpen ? "bg-aztec-100" : "bg-transparent")} px-4 hover:bg-aztec`}
-                                onClick={() => isOpen ? setOpen(false) : setOpen(true)}
-                            >
-                                {
-                                    isDropdown ?
-                                        isOpen ?
-                                            <MinusSmallIcon className={`${(!isOpen ? "text-night-500" : "text-aztec-700")} w-5 h-5`} />
-                                            : <PlusSmallIcon className={`${(!isOpen ? "text-night-500" : "text-aztec-700")} w-5 h-5`} />
-                                        : <></>
-                                }
-                            </Link>
-                            : <></>
-                    }
-
                 </div>
-                {
-                    isOpen ?
-                        !(navigation.sub_navigation.length === 0) ?
-                            <div className="flex flex-col pt-3 pb-6">
-                                {
-                                    navigation.sub_navigation.map((sub) => (
-                                        <div key={sub.judul} className="ml-3">
-                                            <NavigationDropdownAdmin navigation={sub} />
-
-                                        </div>
-                                    ))
-                                }
-                            </div>
-                            : <></>
-                        : <></>
-                }
             </div>
-
         </>
     )
 }
