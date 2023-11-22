@@ -40,12 +40,12 @@ export default function AboutCardHome(
                                 <div className="flex justify-center h-full w-full lg:w-fit md:pt-6 bg-cover overflow-hidden">
                                     <img className="h-full w-60 object-cover object-top" src={imgModelSrc} alt={""}></img>
                                 </div>
-                                <div className="flex flex-col justify-center items-center lg:items-start gap-3 py-12 w-full">
-                                    <div>
-                                        {isAbout ? <div className="text-xl font-semibold text-center lg:text-start text-night-800">Tentang Kami</div> : <></>}
-                                        <div className="text-2xl font-bold text-center lg:text-start text-night-800">{title}</div>
+                                <div className="flex flex-col justify-center items-center lg:items-start gap-6 py-12 w-full">
+                                    <div className="flex flex-col gap-1">
+                                        {isAbout ? <h2 className="text-xl font-semibold text-center lg:text-start text-night-800">Tentang Kami</h2> : <></>}
+                                        <h1 className="text-2xl font-bold text-center lg:text-start text-night-800">{title}</h1>
+                                        <div className="text-center lg:text-start text-night-600">{description}</div>
                                     </div>
-                                    <div className="text-center lg:text-start text-night-600">{description}</div>
                                     <Button className="w-fit rounded-full bg-aztec-500 text-white">Cek Sekarang <ArrowSmallRightIcon className="h-6 w-6 text-white"></ArrowSmallRightIcon> </Button>
                                 </div>
 

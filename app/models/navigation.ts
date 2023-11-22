@@ -12,7 +12,7 @@ export const NavigationsData: Array<NavigationModel> = [
     },
     {
         judul: "tentang kami",
-        link: "#",
+        link: "/about/",
         sub_navigation: [
             {
                 judul: "sejarah",
