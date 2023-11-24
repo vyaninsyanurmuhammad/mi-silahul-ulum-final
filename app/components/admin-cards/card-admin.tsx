@@ -11,7 +11,7 @@ export default function CardAdmin({ children, title, seeMoreLink, }: { children?
             <Card className="w-full">
                 <CardHeader className="p-4 flex flex-col items-start w-full" >
                     <div className="flex flex-row w-full gap-4 items-center justify-between pb-2">
-                        <p className="text-small uppercase font-bold">{title}</p>
+                        <p className="text-small uppercase font-bold text-night-800">{title}</p>
                         {
                             seeMoreLink !== undefined ? <Link className="flex gap-2 text-aztec-700 capitalize text-small"><span>Lihat Selengkapnya </span><ArrowTopRightOnSquareIcon className="h-6 w-6 " /></Link>
                                 : <></>
