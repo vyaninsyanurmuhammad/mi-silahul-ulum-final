@@ -3254,6 +3254,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tiptap/extension-color@npm:^2.1.12":
+  version: 2.1.12
+  resolution: "@tiptap/extension-color@npm:2.1.12"
+  peerDependencies:
+    "@tiptap/core": ^2.0.0
+    "@tiptap/extension-text-style": ^2.0.0
+  checksum: df56b80edf6d9130fea7d3a49e32ce9a427e1f7a79917b3ec64677cf7c13e0afe10705977ba3ce86ed397e5c496a68fc6ee72ddc0be7799529271f5596949826
+  languageName: node
+  linkType: hard
+
 "@tiptap/extension-document@npm:^2.1.12":
   version: 2.1.12
   resolution: "@tiptap/extension-document@npm:2.1.12"
@@ -3375,6 +3385,15 @@ __metadata:
   peerDependencies:
     "@tiptap/core": ^2.0.0
   checksum: 72171e9a07250ad07c8e074e07965e7f945333ee286cbf813edc60580b531e363a05b7bb2d694de90f6ec4449a5b4efa326a65e117ce3ea95cd2241d178d11f4
+  languageName: node
+  linkType: hard
+
+"@tiptap/extension-text-style@npm:^2.1.12":
+  version: 2.1.12
+  resolution: "@tiptap/extension-text-style@npm:2.1.12"
+  peerDependencies:
+    "@tiptap/core": ^2.0.0
+  checksum: 666cef85842267a9e0d2143808d5fdb4f28b0a40f9983cf9560da1dd079f3baabfcdef9f880b61b89a881a108a289a0bdd4ce783970de93eb0791341511313f1
   languageName: node
   linkType: hard
 
@@ -6121,6 +6140,8 @@ __metadata:
     "@mui/styled-engine-sc": ^6.0.0-alpha.6
     "@nextui-org/react": ^2.2.9
     "@reduxjs/toolkit": ^1.9.7
+    "@tiptap/extension-color": ^2.1.12
+    "@tiptap/extension-text-style": ^2.1.12
     "@tiptap/pm": ^2.1.12
     "@tiptap/react": ^2.1.12
     "@tiptap/starter-kit": ^2.1.12
