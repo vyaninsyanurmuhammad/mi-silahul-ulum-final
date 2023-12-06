@@ -21,17 +21,17 @@ export default function Footer() {
                     <div className="gap-8 sm:columns-3 w-full">
                         {
                             navigations.map((navigation) => (
-                                <div key={navigation.judul} className="flex flex-col gap-3 capitalize w-full mb-6">
+                                <div key={navigation.title} className="flex flex-col gap-3 capitalize w-full mb-6">
                                     <div className="w-full h-full">
-                                        <Link href={navigation.link} className="w-fit text-xl font-semibold text-night break-keep">{navigation.judul}</Link>
+                                        <Link href={navigation.link} className="w-fit text-xl font-semibold text-night break-keep">{navigation.title}</Link>
                                     </div>
                                     {
                                         !(navigation.sub_navigation.length === 0) ? (
                                             <div className="flex flex-col gap-2 w-full">
                                                 {
                                                     navigation.sub_navigation?.map((sub) => (
-                                                        <div key={sub.judul} className="w-full">
-                                                            <Link href={sub.link} className="w-fit text-night-100">{sub.judul}</Link>
+                                                        <div key={sub.title} className="w-full">
+                                                            <Link href={sub.link} className="w-fit text-night-100">{sub.title}</Link>
                                                         </div>
                                                     ))
                                                 }

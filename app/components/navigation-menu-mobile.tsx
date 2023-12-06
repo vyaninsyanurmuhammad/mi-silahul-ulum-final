@@ -10,7 +10,7 @@ export default function NavigationMenuMobile({ navigation }: { navigation: Navig
         <>
             <div>
                 <div className="w-full flex group-hover:bg-slate-100 justify-between items-center" onClick={() => isOpen ? setOpen(false) : setOpen(true)}>
-                    <Link className="px-5 py-7 whitespace-nowrap capitalize text-night-800" href={navigation.link}> {navigation.judul}</Link>
+                    <Link className="px-5 py-7 whitespace-nowrap capitalize text-night-800" href={navigation.link}> {navigation.title}</Link>
                     {navigation.sub_navigation?.length === 0 ?
                         (
                             <></>
@@ -29,9 +29,9 @@ export default function NavigationMenuMobile({ navigation }: { navigation: Navig
                 <div className={isOpen ? "block" : "hidden"}>
                     <ul className="bg-slate-100 shadow-xl rounded-b-xl">
                         {navigation.sub_navigation?.map((sub) => (
-                            <li key={sub.judul} className=" hover:bg-slate-200 ">
+                            <li key={sub.title} className=" hover:bg-slate-200 ">
                                 <Link href={navigation.link} className="w-full px-5 py-5 capitalize text-night-800">
-                                    {sub.judul}
+                                    {sub.title}
 
                                 </Link>
                             </li>

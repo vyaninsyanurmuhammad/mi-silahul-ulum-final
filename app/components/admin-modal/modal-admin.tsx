@@ -7,12 +7,14 @@ export default function ModelAdmin(
   {
     isOpen,
     onOpenChange,
+    header,
     body,
     footer,
     size = "5xl"
   }: {
     isOpen: boolean,
     onOpenChange: (isOpen: boolean) => void,
+    header?: ReactNode,
     body?: ReactNode,
     footer?: (onClose: () => void) => ReactNode,
     size?: "5xl" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "full" | undefined,
@@ -20,13 +22,16 @@ export default function ModelAdmin(
 ) {
   return (
     <>
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement="bottom" size={size} scrollBehavior="inside">
-
+      <Modal isOpen={isOpen} onOpenChange={onOpenChange} size={size} placement="bottom">
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader> </ModalHeader>
-              <ModalBody>
+              <ModalHeader> 
+                {
+                  header
+                }
+              </ModalHeader>
+              <ModalBody className="overflow-y-hidden">
                 {
                   body
                 }

@@ -1,7 +1,12 @@
 import type { Config } from 'tailwindcss'
-import { nextui } from "@nextui-org/react";
+import { nextui } from "@nextui-org/react"
+import typography from "@tailwindcss/typography"
+import { PluginAPI } from "tailwindcss/types/config"
 
-const config: Config = {
+const defaultTheme = require("tailwindcss/defaultTheme")
+const withMT = require("@material-tailwind/react/utils/withMT")
+
+const config: Config = withMT({
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -10,6 +15,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamly: {
+        'poppins': ['Poppins', 'sans-serif']
+      },
       colors: {
         'aztec': {
           DEFAULT: '#F5F8F7',
@@ -36,9 +44,24 @@ const config: Config = {
           900: '#3D3D3D',
         },
       },
+
+      typography: ({ theme }: { theme: PluginAPI["theme"] }) => ({
+        DEFAULT: {
+          css: {
+            'code::before': {
+              content: 'none',
+            },
+            'code::after': {
+              content: 'none'
+            },
+          }
+        }
+
+      }),
     },
   },
   darkMode: "class",
-  plugins: [nextui()],
-}
+  plugins: [nextui(), typography, require("tw-elements/dist/plugin")],
+})
+
 export default config

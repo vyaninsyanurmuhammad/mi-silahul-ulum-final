@@ -10,9 +10,9 @@ export default function AdminHomePpdbLeftSection() {
 
     return (
         <>
-            <CardBorderAdmin size="w-fit">
+            <CardBorderAdmin size="w-full md:w-fit">
                 <div className="flex flex-col w-full h-full p-7 gap-5 justify-end items-end">
-                    <div className="flex flex-col space-y-[32px] w-fit justify-center items-center">
+                    <div className="flex flex-col space-y-[32px] w-full md:w-fit justify-center items-center">
                         <div className="flex flex-row space-x-[32px]">
                             <div className="flex justify-center h-full w-full lg:w-fit md:pt-6 bg-cover overflow-hidden">
                                 <img className="h-full w-60 object-cover object-top" src="/assets/img/ppdb-model.png" alt={""}></img>

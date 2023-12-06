@@ -1,24 +1,25 @@
 'use client'
 
 import { Button } from "@nextui-org/react"
-import React from 'react'
+import React, { FC, ReactNode } from 'react'
 import { ArrowSmallRightIcon } from '@heroicons/react/24/outline'
 import { Player } from "@lottiefiles/react-lottie-player"
 
-export default function AboutCardHome(
+type AboutCardHomeProps = {
+    title: string;
+    description: string;
+    imgModelSrc: string;
+    isAbout?: boolean;
+}
+
+const AboutCardHome: FC<AboutCardHomeProps> = (
     {
         title,
         description,
         imgModelSrc,
         isAbout = false,
-        route
-    }: {
-        title?: string,
-        description?: string,
-        imgModelSrc: string,
-        isAbout?: boolean,
-        route?: string
-    }) {
+
+    }) => {
     return (
         <>
             <section className="px-16 xl:px-32 2xl:px-64">
@@ -58,3 +59,5 @@ export default function AboutCardHome(
         </>
     )
 }
+
+export default AboutCardHome

@@ -13,6 +13,7 @@ export default function NavigationDropdownAdmin(
         navigation: NavigationModel,
         isActive?: boolean
     }) {
+
     const [isOpen, setOpen] = useState(false);
 
     useEffect(() => {
@@ -28,7 +29,6 @@ export default function NavigationDropdownAdmin(
                         href={"/admin" + navigation.link}>
                         <div className="flex gap-3 w-full">
                             <div className="flex w-2">
-
                                 {
                                     isActive ?
                                         <div className="w-2 bg-aztec-700 rounded-r-lg" />
@@ -39,7 +39,7 @@ export default function NavigationDropdownAdmin(
                             <div className="flex gap-3 w-full items-center">
                                 <span className={`${(!isActive ? "text-night-500" : "text-aztec-700 font-medium")} w-full text-start capitalize py-2`}>
                                     {
-                                        navigation.judul
+                                        navigation.title
                                     }
                                 </span>
                             </div>

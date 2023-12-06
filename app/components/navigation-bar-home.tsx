@@ -11,7 +11,7 @@ export default function NavigationBar() {
 
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
-    const navigations = NavigationsData.slice(1);
+    const navigations = NavigationsData
 
     return (
         <>
@@ -24,18 +24,18 @@ export default function NavigationBar() {
                     <ul className="flex flex-row">
                         {navigations.map((navigation) =>
                             <li
-                                key={navigation.judul}
+                                key={navigation.title}
                                 className="group"
                             >
                                 <div className="flex group-hover:bg-slate-100 ">
-                                    <Link className="px-5 py-7 whitespace-nowrap capitalize text-night-800" href={navigation.link} > {navigation.judul}</Link>
+                                    <Link className="px-5 py-7 whitespace-nowrap capitalize text-night-800" href={navigation.link} > {navigation.title}</Link>
                                 </div>
                                 <div className="absolute hidden group-hover:block">
                                     <ul className="bg-gray-100 shadow-xl rounded-br-xl">
                                         {navigation.sub_navigation?.map((sub) => (
-                                            <li key={sub.judul} className="hover:bg-slate-200 ">
+                                            <li key={sub.title} className="hover:bg-slate-200 ">
                                                 <Link href={navigation.link} className="w-full px-5 py-5 capitalize text-night-800">
-                                                    {sub.judul}
+                                                    {sub.title}
 
                                                 </Link>
                                             </li>
@@ -71,7 +71,7 @@ export default function NavigationBar() {
                                 <ul className="flex flex-col">
                                     {navigations.map((navigation) =>
                                         <li
-                                            key={navigation.judul}
+                                            key={navigation.title}
                                             className="group"
                                         >
                                             <NavigationMenuMobile navigation={navigation} />
