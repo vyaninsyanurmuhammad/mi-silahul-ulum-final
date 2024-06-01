@@ -1,6 +1,6 @@
 import { Link } from "@nextui-org/react"
 import React from 'react'
-import { NavigationsData } from "../models/navigation"
+import { NavigationsData } from "../models/navigation-model"
 
 export default function Footer() {
 

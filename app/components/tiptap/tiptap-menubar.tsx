@@ -22,8 +22,8 @@ export default function TipTapMenuBar({ editor }: { editor: Editor | null }) {
     return (
         <>
             <div className="h-fit w-full">
-                <div className="flex flex-wrap gap-5 bg-white h-fit w-full py-3 rounded-md">
-                    <div className="flex gap-3">
+                <div className="flex flex-wrap gap-3 lg:gap-5 bg-white h-fit w-full py-3 rounded-md">
+                    <div className="flex gap-3 flex-wrap">
                         <TipTapButton
                             onClick={() => editor.chain().focus().toggleBold().run()}
                             disabled={
@@ -51,7 +51,7 @@ export default function TipTapMenuBar({ editor }: { editor: Editor | null }) {
                             <FaItalic />
                         </TipTapButton>
                         <TipTapButton
-                            onClick={() => editor.chain().focus().toggleStrike().run()}
+                            onClick={() => editor.chain().focus().toggleUnderline().run()}
                             disabled={
                                 !editor.can()
                                     .chain()
@@ -103,7 +103,7 @@ export default function TipTapMenuBar({ editor }: { editor: Editor | null }) {
                         <Divider orientation="vertical" />
                     </div>
 
-                    <div className="flex gap-3">
+                    <div className="flex gap-3 flex-wrap">
 
                         <TipTapButton
                             onClick={() => editor.chain().focus().setTextAlign('left').run()}
@@ -141,7 +141,7 @@ export default function TipTapMenuBar({ editor }: { editor: Editor | null }) {
                         <Divider orientation="vertical" />
                     </div>
 
-                    <div className="flex gap-3">
+                    <div className="flex gap-3 flex-wrap">
 
                         <TipTapButton isNotIconOnly onClick={() => editor.chain().focus().clearNodes().run()}>
                             <span>

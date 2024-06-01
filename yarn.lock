@@ -4757,6 +4757,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/uuid@npm:^9.0.7":
+  version: 9.0.7
+  resolution: "@types/uuid@npm:9.0.7"
+  checksum: c7321194aeba9ea173efd1e721403bdf4e7ae6945f8f8cdbc87c791f4b505ccf3dbc4a8883d90b394ef13b7c2dc778045792b05dbb23b3c746f8ea347804d448
+  languageName: node
+  linkType: hard
+
 "@typescript-eslint/parser@npm:^5.4.2 || ^6.0.0":
   version: 6.13.1
   resolution: "@typescript-eslint/parser@npm:6.13.1"
@@ -8298,6 +8305,7 @@ __metadata:
     "@types/node": ^20
     "@types/react": ^18
     "@types/react-dom": ^18
+    "@types/uuid": ^9.0.7
     autoprefixer: ^10.0.1
     bcrypt: ^5.1.1
     eslint: ^8
@@ -8319,6 +8327,7 @@ __metadata:
     tailwindcss: ^3.3.0
     tw-elements: ^1.0.0
     typescript: ^5
+    uuid: ^9.0.1
   languageName: unknown
   linkType: soft
 
@@ -10988,7 +10997,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uuid@npm:^9.0.0":
+"uuid@npm:^9.0.0, uuid@npm:^9.0.1":
   version: 9.0.1
   resolution: "uuid@npm:9.0.1"
   bin:

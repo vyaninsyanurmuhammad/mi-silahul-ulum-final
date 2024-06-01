@@ -33,6 +33,7 @@
     "@tiptap/pm": "^2.1.12",
     "@tiptap/react": "^2.1.12",
     "@tiptap/starter-kit": "^2.1.12",
+    "@types/uuid": "^9.0.7",
     "bcrypt": "^5.1.1",
     "firebase": "^10.7.0",
     "firebase-admin": "^11.11.1",
@@ -47,7 +48,8 @@
     "redux": "^5.0.0",
     "styled-components": "^6.1.1",
     "swiper": "^11.0.4",
-    "tw-elements": "^1.0.0"
+    "tw-elements": "^1.0.0",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",

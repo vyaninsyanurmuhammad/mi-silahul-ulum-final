@@ -1,4 +1,4 @@
-import admin from 'firebase-admin';
+import admin, { auth, credential, initializeApp } from 'firebase-admin';
 import { initFirestore } from "@auth/firebase-adapter";
 
 let app
@@ -10,15 +10,15 @@ const firebaseAdminConfig = {
 }
 
 if (!admin.app.length) {
-    app = admin.initializeApp({
-        credential: admin.credential.cert(firebaseAdminConfig)
+    app = initializeApp({
+        credential: credential.cert(firebaseAdminConfig)
     });
 }
 
 const adminFirestore = initFirestore({
-    credential: admin.credential.cert(firebaseAdminConfig)
+    credential: credential.cert(firebaseAdminConfig)
 })
 
-const adminAuth = admin.auth(app)
+const adminAuth = auth(app)
 
 export { adminFirestore, adminAuth }

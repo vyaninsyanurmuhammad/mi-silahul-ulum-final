@@ -1,6 +1,6 @@
 'use client'
 
-import { NewsModel } from "@/app/models/news";
+import { NewsModel } from "@/app/models/news-model";
 import { MagnifyingGlassIcon, PlusIcon } from "@heroicons/react/24/outline";
 import { Button, Chip, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Image, Input, Pagination, Table, TableBody, TableColumn, TableHeader, User } from "@nextui-org/react"
 import React, { useCallback, useState } from 'react'

@@ -1,44 +1,59 @@
 'use client'
 
-import { BookOpenIcon, Cog6ToothIcon, DocumentTextIcon, HomeIcon, HomeModernIcon, IdentificationIcon, NewspaperIcon, PhotoIcon, PlusCircleIcon, PlusIcon, TrashIcon } from "@heroicons/react/24/outline"
-import { Avatar, Button, Divider, Dropdown, DropdownItem, DropdownMenu, DropdownSection, DropdownTrigger, Input, Link, ScrollShadow, User, useDisclosure } from "@nextui-org/react"
+import { BookOpenIcon, Cog6ToothIcon, DocumentTextIcon, HomeIcon, HomeModernIcon, IdentificationIcon, InformationCircleIcon, NewspaperIcon, PhotoIcon, PlusCircleIcon, PlusIcon, TrashIcon } from "@heroicons/react/24/outline"
+import { Avatar, Button, CircularProgress, Divider, Dropdown, DropdownItem, DropdownMenu, DropdownSection, DropdownTrigger, Input, Link, Progress, ScrollShadow, User, useDisclosure } from "@nextui-org/react"
 import React, { useEffect, useState } from 'react'
-import { NavigationModel, NavigationsData } from "../models/navigation"
+import { NavigationModel, NavigationsData } from "../models/navigation-model"
 import { ArrowRightOnRectangleIcon, ChevronDownIcon, PlusSmallIcon } from "@heroicons/react/20/solid";
 import { ArrowRightIcon } from "@heroicons/react/20/solid"
 import NavigationDropdownAdmin from "./navigation-dropdown-admin"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import Image from "next/image"
 import ModelAdmin from "./admin-modal/modal-admin"
-import { Breadcrumbs, Dialog, DialogBody, DialogFooter, DialogHeader, Typography } from "@material-tailwind/react"
-import { auth } from "../firebase/firebaseConfig"
+import { Alert, Breadcrumbs, Dialog, DialogBody, DialogFooter, DialogHeader, Typography } from "@material-tailwind/react"
+import { auth, firestore } from "../firebase/firebaseConfig"
 import { signOut } from "next-auth/react"
+import { addDoc, collection } from "firebase/firestore"
+import { PageModel } from "../models/page-model"
+import { useAppDispatch, useAppSelector } from "../redux/hook"
+import { addPage, deletePage, fetchPages, resetPageError, resetPageSuccess, updateIndexPage } from "../redux/feature/admin-slice"
 
 export default function NavigationBar() {
 
-    const patheNameRouter = usePathname();
+    const patheNameRouter = usePathname()
+    const dispatch = useAppDispatch()
+    const router = useRouter()
 
-    const [open, setOpen] = useState(false);
-    const [title, setTitle] = useState('');
-    const [link, setLink] = useState('');
+    const adminPageState = useAppSelector((state) => state.adminReducer.pageState)
 
-
-    const [navigations, setNavigations] = useState<NavigationModel[]>([])
-
-
-    const getNavigations = async () => {
-        try {
-
-        } catch (error) {
-            console.error('Error fetching navigations:', error)
-        }
-    };
+    const [open, setOpen] = useState(false)
+    const [title, setTitle] = useState('')
+    const [link, setLink] = useState('')
 
     const linkConverter = (value: string) => {
-        let link = value.toLowerCase().replace(" ", "")
+        let linkConverted = value.toLowerCase().replace(" ", "")
 
         setTitle(value)
-        setLink(link)
+        setLink(linkConverted)
+    }
+
+    const addPageToFirestore = () => {
+        dispatch(addPage({
+            index: adminPageState.pages.length,
+            name: title,
+            link
+        }))
+
+        setTitle("")
+        setLink("")
+
+        handleOpen()
+
+        router.push(`/admin/${link}`)
+    }
+
+    const deletePageFromFirestore = (id: string) => {
+        dispatch(deletePage(id))
     }
 
     const handleOpen = () => setOpen(!open);
@@ -48,14 +63,11 @@ export default function NavigationBar() {
         await signOut()
     }
 
-    useEffect(() => {
-        getNavigations();
-    }, []);
-
 
     return (
         <>
-            <div className="fixed w-72 h-full flex flex-col gap-2 bg-white py-6 justify-between border-r-1 z-40">
+           
+            <div className="fixed w-72 h-full flex flex-col gap-2 bg-white py-6 justify-between border-r-1 z-50">
                 <ScrollShadow>
 
                     <div className="flex flex-col items-center gap-6 w-full h-full">
@@ -63,11 +75,10 @@ export default function NavigationBar() {
                         <Image className="w-12 h-12 shadow-xl border" src="/logo-ysu.svg" alt={""} height={48} width={48} />
                         <div className="flex flex-col w-full">
                             <NavigationDropdownAdmin navigation={{
-                                title: "Beranda",
-                                link: "/",
-                                sub_navigation: []
+                                name: "Beranda",
+                                link: "beranda",
                             }}
-                                isActive={patheNameRouter === "/admin/" ? true : false}
+                                isActive={patheNameRouter === "/admin/beranda/" ? true : false}
                             />
                         </div>
                         <div className="flex flex-col gap-3 w-full ">
@@ -77,16 +88,33 @@ export default function NavigationBar() {
                                 <Divider orientation="horizontal" className="shrink" />
                             </div>
 
+
                             <div className="flex flex-col w-full">
 
-                                {navigations?.map((navigation) => (
-                                    <NavigationDropdownAdmin
-                                        key={navigation.title}
-                                        navigation={navigation}
-                                        isActive={patheNameRouter === "/admin" + navigation.link ? true : false}
-                                    />
-
-                                ))}
+                                {adminPageState.loadPageState.loading === true ?
+                                    <Progress
+                                        size="sm"
+                                        isIndeterminate
+                                        aria-label="Loading..."
+                                        color="default"
+                                        className="max-w-md px-4" />
+                                    : adminPageState.pages.length === 0 ?
+                                        <div className="w-full flex justify-center">
+                                            <span className="text-xs"> Tidak ada data pages</span>
+                                        </div>
+                                        : adminPageState.pages.map((navigation) => (
+                                            <NavigationDropdownAdmin
+                                                key={navigation.route.link}
+                                                navigation={navigation.route}
+                                                isDynamicPage
+                                                onDeleteClick={() => deletePageFromFirestore(navigation.id!)}
+                                                isUpButtonDisabled={(navigation.route.index === 0)}
+                                                isDownButtonDisabled={(navigation.route.index! + 1 === adminPageState.pages.length)}
+                                                onUpClick={() => dispatch(updateIndexPage({ id: navigation.id!, newIndex: navigation.route.index! - 1 }))}
+                                                onDownClick={() => dispatch(updateIndexPage({ id: navigation.id!, newIndex: navigation.route.index! + 1 }))}
+                                                isActive={patheNameRouter === "/admin/" + navigation.route.link + "/" ? true : false}
+                                            />
+                                        ))}
                             </div>
 
                             <div className="px-3 w-full">
@@ -105,6 +133,8 @@ export default function NavigationBar() {
                                             type="text"
                                             label="Title"
                                             placeholder="type your title here ..."
+                                            required
+                                            isDisabled={adminPageState.addPageState.loading}
                                             labelPlacement="outside"
                                             onValueChange={(value) => linkConverter(value)}
                                         />
@@ -129,7 +159,7 @@ export default function NavigationBar() {
                                         <Button color="danger" variant="light" onClick={handleOpen}>
                                             Close
                                         </Button>
-                                        <Button color="primary" onClick={handleOpen}>
+                                        <Button color="primary" onClick={addPageToFirestore} isLoading={adminPageState.addPageState.loading}>
                                             Save
                                         </Button>
                                     </div>
@@ -147,19 +177,17 @@ export default function NavigationBar() {
                             </div>
                             <div className="flex flex-col w-full">
                                 <NavigationDropdownAdmin navigation={{
-                                    title: "News",
-                                    link: "/news",
-                                    sub_navigation: []
+                                    name: "Berita",
+                                    link: "berita",
                                 }}
-                                    isActive={patheNameRouter === "/admin/news/" ? true : false}
+                                    isActive={patheNameRouter === "/admin/berita/" ? true : false}
                                 />
 
                                 <NavigationDropdownAdmin navigation={{
-                                    title: "Gallery",
-                                    link: "/gallery",
-                                    sub_navigation: []
+                                    name: "Galeri",
+                                    link: "galeri",
                                 }}
-                                    isActive={patheNameRouter == "/admin/gallery/" ? true : false}
+                                    isActive={patheNameRouter == "/admin/galeri/" ? true : false}
                                 />
 
                             </div>

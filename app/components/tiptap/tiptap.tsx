@@ -9,8 +9,14 @@ import { TextAlign } from "@tiptap/extension-text-align";
 import ListItem from "@tiptap/extension-list-item"
 import { Underline } from "@tiptap/extension-underline"
 
-const Tiptap = () => {
+const Tiptap = ({ content, onValueChange }: { content: string, onValueChange?: (value: string) => void }) => {
   const editor = useEditor({
+    content,
+    onUpdate: ({ editor }) => {
+      const json = editor.getHTML()
+      onValueChange && onValueChange(json)
+      // send the content to an API here
+    },
     extensions: [
       StarterKit.configure({
         bulletList: {
@@ -51,7 +57,7 @@ const Tiptap = () => {
   return (
     <>
       <TipTapMenuBar editor={editor} ></TipTapMenuBar>
-      <EditorContent className="w-full h-fit max-h-full overflow-y-auto" editor={editor}></EditorContent>
+      <EditorContent className="w-full h-fit max-h-full overflow-y-auto" editor={editor} ></EditorContent>
     </>
 
   )

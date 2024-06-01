@@ -5,7 +5,7 @@ import React from 'react'
 import { Bars2Icon, Bars3Icon, HomeIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, ChevronLeftIcon } from "@heroicons/react/20/solid"
 import NavigationMenuMobile from "./navigation-menu-mobile"
-import { NavigationModel, NavigationsData } from "../models/navigation"
+import { NavigationModel, NavigationsData } from "../models/navigation-model"
 
 export default function NavigationBar() {
 

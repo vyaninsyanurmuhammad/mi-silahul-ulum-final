@@ -2,7 +2,7 @@
 
 import { InformationCircleIcon } from "@heroicons/react/24/outline";
 import { Alert } from "@material-tailwind/react";
-import { Button, Input } from "@nextui-org/react";
+import { Button, Input, Progress } from "@nextui-org/react";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -65,17 +65,28 @@ export default function Login() {
 
     if (session?.status === 'loading') {
         return (
-            <div>
-                Loading......
+            <div className="h-screen w-full flex justify-center items-center">
+                <Progress
+                    size="sm"
+                    isIndeterminate
+                    aria-label="Loading..."
+                    color="default"
+                    className="max-w-md px-4" />
             </div>
         );
     }
 
     if (session?.status === 'authenticated') {
-        router.push('/admin')
+        router.push('/admin/beranda')
         return (
-            <div>
-                redirecting......
+            <div className="h-screen w-full flex justify-center items-center">
+                <span>Redirecting ...</span>
+                <Progress
+                    size="sm"
+                    isIndeterminate
+                    aria-label="Loading..."
+                    color="default"
+                    className="max-w-md px-4" />
             </div>
         );
     }
@@ -84,7 +95,7 @@ export default function Login() {
         <>
             <div className="fixed z-50 left-1/2 top-4 transform -translate-x-1/2">
                 <Alert className="max-w-screen-md "
-                    icon={ <InformationCircleIcon className="w-6 h-6 text-white" />}
+                    icon={<InformationCircleIcon className="w-6 h-6 text-white" />}
                     open={open.isOpen}
                     onClose={() => setOpen({ ...open, isOpen: false, })}
                     animate={{
@@ -115,7 +126,7 @@ export default function Login() {
                             <div className="self-stretch flex-col justify-start items-start gap-[30px] flex">
                                 <Input
                                     size="lg"
-                                  
+
                                     label="Email"
                                     labelPlacement="outside"
                                     type="email"
@@ -128,7 +139,7 @@ export default function Login() {
                                 />
                                 <Input
                                     size="lg"
-                                    
+
                                     label="Password"
                                     labelPlacement="outside"
                                     type="password"

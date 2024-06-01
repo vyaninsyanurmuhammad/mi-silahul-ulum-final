@@ -1,12 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcrypt";
 import { auth, firestore } from "@/app/firebase/firebaseConfig";
-import { UserModel } from "@/app/models/user";
+import { UserModel } from "@/app/models/user-model";
 import { query, collection, where, getDocs, addDoc } from "firebase/firestore";
 import { UserCredential, createUserWithEmailAndPassword, updateProfile, } from "firebase/auth";
 
 export async function POST(req: NextRequest) {
     try {
+
         const json = await req.json();
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

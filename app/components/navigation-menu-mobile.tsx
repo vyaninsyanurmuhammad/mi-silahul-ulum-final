@@ -1,7 +1,7 @@
 import { ChevronDownIcon, ChevronLeftIcon } from "@heroicons/react/20/solid";
 import { Link } from "@nextui-org/react";
 import React, { useState } from 'react'
-import { NavigationModel } from "../models/navigation";
+import { NavigationModel } from "../models/navigation-model";
 
 export default function NavigationMenuMobile({ navigation }: { navigation: NavigationModel }) {
     const [isOpen, setOpen] = useState(false);

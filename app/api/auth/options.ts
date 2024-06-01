@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt';
 import { FirestoreAdapter } from "@auth/firebase-adapter"
 import { auth, firestore } from "@/app/firebase/firebaseConfig";
 import { addDoc, collection, getDoc, getDocs, query, where } from "firebase/firestore";
-import { UserModel } from "@/app/models/user";
+import { UserModel } from "@/app/models/user-model";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { adminAuth, adminFirestore } from "@/app/firebase/firebaseAdmin";
 
@@ -48,7 +48,7 @@ export const authOptions: NextAuthOptions = {
                     session.user.email = token.email
                 }
             }
-            console.log('Session Callback', { session, token });
+            // console.log('Session Callback', { session, token });
 
             return session
         },
@@ -57,7 +57,7 @@ export const authOptions: NextAuthOptions = {
             if (user) {
                 token.sub = user.id
             }
-            console.log('Jwt Callback', { user, token });
+            // console.log('Jwt Callback', { user, token });
 
             return token
         }

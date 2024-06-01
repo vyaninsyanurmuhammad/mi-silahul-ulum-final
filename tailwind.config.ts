@@ -54,6 +54,12 @@ const config: Config = withMT({
             'code::after': {
               content: 'none'
             },
+            h5: {
+              fontSize: theme('fontSize.sm'),
+            },
+            h6: {
+              fontSize: theme('fontSize.xs'),
+            },
           }
         }
 

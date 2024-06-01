@@ -8,6 +8,7 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { AuthProvider } from "./api/auth/provider";
 import FirebaseProvider from "./firebase/provider";
+import ReduxProvider from "./redux/provider";
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -27,13 +28,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={poppins.className}>
-        <NextUIProviders>
-          <AuthProvider>
-            <FirebaseProvider>
-              {children}
-            </FirebaseProvider>
-          </AuthProvider>
-        </NextUIProviders>
+        <ReduxProvider>
+          <NextUIProviders>
+            <AuthProvider>
+              <FirebaseProvider>
+                {children}
+              </FirebaseProvider>
+            </AuthProvider>
+          </NextUIProviders>
+        </ReduxProvider>
       </body>
     </html>
   )
